@@ -48,18 +48,11 @@
       .section-body h2 { font-size: 16px; line-height: 1.3; }
       .section-body p { font-size: 13px; line-height: 1.6; }
       .section-row { gap: 16px; }
-      footer { padding: 16px 12px 40px !important; }
-      footer > div > div { flex-direction: column !important; width: 100% !important; padding: 12px !important; }
-      footer > div > div > div { flex-direction: column !important; gap: 20px !important; width: 100% !important; }
-      footer > div > div > div > div:first-child { width: 100% !important; min-height: unset !important; }
-      footer > div > div > div > div:last-child { flex-direction: column !important; gap: 20px !important; width: 100% !important; }
-      footer [style*="gap:163px"] { gap: 24px !important; }
-      footer [style*="gap:170px"] { flex-direction: column !important; gap: 16px !important; align-items: flex-start !important; }
-      footer [style*="gap:53px"] { flex-direction: column !important; gap: 20px !important; align-items: flex-start !important; }
-      footer [style*="width:240px"] { width: 100% !important; }
-      footer [style*="min-height:380px"] { min-height: unset !important; gap: 24px !important; }
-      footer [style*="gap:20px"] { flex-wrap: wrap; }
-      footer [style*="padding:6px 29px"] { width: 100% !important; box-sizing: border-box; }
+      footer { display: none !important; }
+      .mobile-footer { display: block !important; }
+    }
+    @media (min-width: 900px) {
+      .mobile-footer { display: none !important; }
     }
   </style>
 </head>
@@ -233,7 +226,8 @@
 
   </div>
 
-  <footer style="background:#F5F5F5; padding:40px 80px 60px;">
+
+<footer style="background:#F5F5F5; padding:40px 80px 60px;">
   <div style="max-width:1280px; margin:0 auto;">
     <div style="padding:12px 32px 12px 12px; background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); border-radius:30px; outline:2px rgba(255,255,255,0.50) solid; outline-offset:-2px; display:inline-flex; flex-direction:column; gap:10px; width:100%;">
       <div style="align-self:stretch; display:inline-flex; align-items:flex-start; gap:32px;">
@@ -254,34 +248,50 @@
         <div style="flex:1; flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:163px; display:inline-flex;">
           <div style="align-self:stretch; justify-content:flex-start; align-items:center; gap:53px; display:inline-flex; padding-top:40px;">
             <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:30px; display:inline-flex;">
-              <div style="color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; text-transform:capitalize; line-height:14.40px;">Empowering learners for career success.</div>
+              <div style="color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; text-transform:capitalize; line-height:14.40px; word-wrap:break-word;">Empowering learners for career success.</div>
               <div style="padding:7px 7px 7px 20px; border-radius:125px; outline:1px rgba(0,0,0,0.10) solid; outline-offset:-1px; backdrop-filter:blur(12.35px); justify-content:flex-start; align-items:center; gap:55px; display:inline-flex;">
-                <input placeholder="Enter your email" style="border:none; outline:none; background:transparent; font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:rgba(0,0,0,0.50); width:90px;">
-                <button style="padding:9px 4px; background:#F7941D; box-shadow:0px 11px 13px -5px rgba(0,0,0,0.20); border-radius:62px; border:none; cursor:pointer; width:105px; color:white; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif;">Subscribe</button>
+                <div style="width:90px; height:15px; text-align:center; justify-content:center; display:flex; flex-direction:column; color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:14.40px; word-wrap:break-word;">
+                  <input placeholder="Enter your email" style="border:none; outline:none; background:transparent; font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:rgba(0,0,0,0.50); width:100%;">
+                </div>
+                <button style="padding:9px 4px; background:#F7941D; box-shadow:0px 11px 13px -5px rgba(0,0,0,0.20), 0px 2px 0px rgba(0,0,0,0.25) inset; border-radius:62px; border:none; overflow:hidden; justify-content:center; align-items:center; gap:10px; display:flex; cursor:pointer;">
+                  <div style="width:97px; text-align:center; color:white; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-transform:capitalize; line-height:16.80px; word-wrap:break-word;">Subscribe</div>
+                </button>
               </div>
             </div>
-            <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:20px; display:inline-flex;">
-              <div style="color:#000; font-size:18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; line-height:21.60px;">Legal</div>
-              <div style="flex-direction:column; gap:12px; display:flex;">
-                <a href="terms.html" style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-decoration:none;">Terms of Service</a>
-                <a href="privacy.html" style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-decoration:none;">Privacy Policy</a>
-                <a href="refund.html" style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-decoration:none;">Refund Policy</a>
+            <div style="justify-content:flex-start; align-items:flex-start; gap:54px; display:flex;">
+              <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:20px; display:inline-flex;">
+                <div style="color:#000; font-size:18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; line-height:21.60px; word-wrap:break-word;">Legal</div>
+                <div style="align-self:stretch; flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:12px; display:flex;">
+                  <a href="terms.html" style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px; word-wrap:break-word; text-decoration:none;">Terms of Service</a>
+                  <a href="privacy.html" style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px; word-wrap:break-word; text-decoration:none;">Privacy Policy</a>
+                  <a href="refund.html" style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px; word-wrap:break-word; text-decoration:none;">Refund Policy</a>
+                </div>
               </div>
             </div>
           </div>
           <div style="align-self:stretch; justify-content:flex-start; align-items:center; gap:170px; display:inline-flex;">
             <div style="justify-content:flex-start; align-items:center; gap:9px; display:flex;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#000" stroke-width="2"/><path d="M14.5 9.5a3.5 3.5 0 1 0 0 5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
-              <div><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400;">2026 </span><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-transform:uppercase;">Hantrix</span><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400;">. All rights reserved.</span></div>
+              <div><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">2026 </span><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-transform:uppercase; line-height:16.80px;">Hantrix</span><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">. All rights reserved.</span></div>
             </div>
             <div style="justify-content:flex-start; align-items:center; gap:20px; display:flex;">
               <div style="padding:6px 29px 6px 6px; background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); border-radius:30px; outline:2px white solid; outline-offset:-2px; display:flex; align-items:center; gap:10px;">
-                <div style="width:40px; height:40px; padding:13px; background:#F7941D; border-radius:44px; display:flex; justify-content:center; align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M16 1c-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.8 2.9-1.5 4.5 1.7.1 3.5-.9 4.5-2.2 1-1.2 1.7-2.9 1.6-4.7zM21 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.6-4-3.1C1 16.5.6 11.3 2.6 8.5c1-1.4 2.6-2.3 4.1-2.3 1.6 0 2.6 1 3.9 1 1.3 0 2.1-1 3.9-1 1.4 0 2.8.7 3.9 2-3.4 1.9-2.9 6.8.6 8.1z"/></svg></div>
-                <div style="flex-direction:column; gap:2px; display:inline-flex;"><div style="color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif;">Download on the</div><div style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600;">App Store</div></div>
+                <div style="justify-content:flex-start; align-items:center; gap:11px; display:flex;">
+                  <div style="width:40px; height:40px; padding:13px; background:#F7941D; border-radius:44px; display:flex; justify-content:center; align-items:center; flex:none;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M16 1c-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.8 2.9-1.5 4.5 1.7.1 3.5-.9 4.5-2.2 1-1.2 1.7-2.9 1.6-4.7zM21 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.6-4-3.1C1 16.5.6 11.3 2.6 8.5c1-1.4 2.6-2.3 4.1-2.3 1.6 0 2.6 1 3.9 1 1.3 0 2.1-1 3.9-1 1.4 0 2.8.7 3.9 2-3.4 1.9-2.9 6.8.6 8.1z"/></svg></div>
+                  <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:2px; display:inline-flex;">
+                    <div style="color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:14.40px; word-wrap:break-word;">Download on the</div>
+                    <div style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; line-height:16.80px; word-wrap:break-word;">App Store</div>
+                  </div>
+                </div>
               </div>
               <div style="padding:6px 29px 6px 6px; background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); border-radius:30px; outline:2px white solid; outline-offset:-2px; display:flex; align-items:center; gap:10px;">
-                <div style="width:40px; height:40px; padding:13px; background:#F7941D; border-radius:44px; display:flex; justify-content:center; align-items:center;"><svg width="15" height="16" viewBox="0 0 24 24" fill="#fff"><polygon points="4 3 20 12 4 21 4 3"/></svg></div>
-                <div style="flex-direction:column; gap:2px; display:inline-flex;"><div style="color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif;">Get it on</div><div style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600;">Google Play</div></div>
+                <div style="justify-content:flex-start; align-items:center; gap:11px; display:flex;">
+                  <div style="width:40px; height:40px; padding:13px; background:#F7941D; border-radius:44px; display:flex; justify-content:center; align-items:center; flex:none;"><svg width="15" height="16" viewBox="0 0 24 24" fill="#fff"><polygon points="4 3 20 12 4 21 4 3"/></svg></div>
+                  <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:2px; display:inline-flex;">
+                    <div style="color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:14.40px; word-wrap:break-word;">Get it on</div>
+                    <div style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; line-height:16.80px; word-wrap:break-word;">Google Play</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -290,6 +300,69 @@
     </div>
   </div>
 </footer>
+
+<!-- MOBILE FOOTER -->
+<div class="mobile-footer" style="display:none; background:#F5F5F5; padding:12px 12px 100px;">
+  <div style="background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); border-radius:30px; outline:2px rgba(255,255,255,0.50) solid; outline-offset:-2px; overflow:hidden; display:flex; flex-direction:column;">
+    <div style="margin:12px 12px 0; padding:32px; background:#F7941D; box-shadow:0px 11px 13px -5px rgba(0,0,0,0.20), 0px 2px 0px rgba(0,0,0,0.25) inset; border-radius:20px; display:flex; justify-content:center;">
+      <div style="width:100%; flex-direction:column; justify-content:flex-start; align-items:center; gap:60px; display:inline-flex;">
+        <img src="footer-logo.png" style="width:116px; height:41px; object-fit:contain;">
+        <div style="flex-direction:column; justify-content:flex-start; align-items:center; gap:32px; display:flex;">
+          <div style="width:269px; text-align:center; color:rgba(255,255,255,0.70); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:14.40px; word-wrap:break-word;">Empowering learners with practical education for a stronger future.</div>
+          <div style="justify-content:flex-start; align-items:center; gap:12px; display:inline-flex;">
+            <a href="https://www.instagram.com/hantrix.academy?igsh=bWI3dGhtZ2I4bGY2&utm_source=qr" target="_blank" rel="noopener" style="width:40px; height:40px; padding:12px; background:white; overflow:hidden; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none; box-sizing:border-box;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#000" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4" stroke="#000" stroke-width="2" fill="none"/><circle cx="17.5" cy="6.5" r="1.5" fill="#000"/></svg></a>
+            <a href="https://www.linkedin.com/in/hantrix-academy-3033b0403/" target="_blank" rel="noopener" style="width:40px; height:40px; padding:12px; background:white; overflow:hidden; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none; box-sizing:border-box;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#000" stroke-width="2" fill="none"/><path d="M7 10v7M7 7v.5" stroke="#000" stroke-width="2" stroke-linecap="round"/><path d="M11 17v-4c0-1.1.9-2 2-2h1a2 2 0 0 1 2 2v4" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 10v7" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg></a>
+            <a href="https://www.youtube.com/@hantrixacademy" target="_blank" rel="noopener" style="width:40px; height:40px; padding:12px; background:white; overflow:hidden; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none; box-sizing:border-box;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" stroke="#000" stroke-width="2" fill="none"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#000"/></svg></a>
+            <a href="https://x.com/hantrixacademy?s=11" target="_blank" rel="noopener" style="width:40px; height:40px; padding:12px; background:white; overflow:hidden; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none; box-sizing:border-box;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.75C7.44329 3.75 3.75 7.44329 3.75 12C3.75 16.5567 7.44329 20.25 12 20.25C16.5567 20.25 20.25 16.5567 20.25 12C20.25 7.44329 16.5567 3.75 12 3.75ZM2.25 12C2.25 6.61487 6.61487 2.25 12 2.25C17.3851 2.25 21.75 6.61487 21.75 12C21.75 17.3851 17.3851 21.75 12 21.75C6.61487 21.75 2.25 17.3851 2.25 12Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7.34352 8.47386C6.90712 7.83045 7.36801 6.96094 8.14545 6.96094H10.1963C10.6265 6.96094 11.0287 7.17412 11.2701 7.53012L16.7059 15.5444C17.1423 16.1878 16.6814 17.0573 15.9039 17.0573H13.8531C13.4229 17.0573 13.0207 16.8441 12.7793 16.4881L7.34352 8.47386ZM9.14723 8.46094L13.9604 15.5573H14.9022L10.089 8.46094H9.14723Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11.6242 12.2418C11.9351 12.5155 11.9652 12.9894 11.6915 13.3003L8.4399 16.9938C8.16619 17.3047 7.69228 17.3349 7.38138 17.0612C7.07048 16.7875 7.04032 16.3136 7.31403 16.0027L10.5657 12.3091C10.8394 11.9982 11.3133 11.9681 11.6242 12.2418Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16.2968 6.93707C16.6077 7.21078 16.6378 7.68469 16.3641 7.99559L13.3061 11.4692C13.0324 11.7801 12.5585 11.8103 12.2476 11.5366C11.9367 11.2629 11.9065 10.7889 12.1802 10.478L15.2383 7.00443C15.512 6.69352 15.9859 6.66337 16.2968 6.93707Z" fill="black"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin:0 12px 12px; padding:30px 0; display:flex; flex-direction:column; justify-content:space-between; gap:30px;">
+      <div style="display:flex; flex-direction:column; gap:30px;">
+        <div style="width:175px; color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; text-transform:capitalize; line-height:14.40px; word-wrap:break-word;">Empowering learners for career success.</div>
+        <div style="padding:7px 7px 7px 20px; border-radius:125px; outline:1px rgba(0,0,0,0.10) solid; outline-offset:-1px; display:inline-flex; align-items:center; gap:20px;">
+          <input placeholder="Enter your email" style="border:none; outline:none; background:transparent; font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:rgba(0,0,0,0.50); flex:1; min-width:0;">
+          <button style="padding:9px 4px; background:#F7941D; box-shadow:0px 11px 13px -5px rgba(0,0,0,0.20), 0px 1px 0px rgba(0,0,0,0.25) inset; border-radius:62px; border:none; cursor:pointer;">
+            <div style="width:97px; text-align:center; color:white; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-transform:capitalize; line-height:16.80px;">Subscribe</div>
+          </button>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="color:#000; font-size:18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; line-height:21.60px;">Legal</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="terms.html" style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px; text-decoration:none;">Terms of Service</a>
+          <a href="privacy.html" style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px; text-decoration:none;">Privacy Policy</a>
+          <a href="refund.html" style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px; text-decoration:none;">Refund Policy</a>
+        </div>
+      </div>
+      <div style="justify-content:flex-start; align-items:center; gap:20px; display:inline-flex;">
+        <div style="padding-top:6px; padding-bottom:6px; padding-left:6px; padding-right:26px; background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); overflow:hidden; border-radius:30px; outline:2px rgba(255,255,255,0.50) solid; outline-offset:-2px; justify-content:flex-start; align-items:center; gap:10px; display:flex;">
+          <div style="justify-content:flex-start; align-items:center; gap:11px; display:flex;">
+            <div style="width:40px; height:40px; padding:13px; background:#F7941D; border-radius:44px; justify-content:center; align-items:center; gap:10px; display:flex; box-sizing:border-box;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M16 1c-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.8 2.9-1.5 4.5 1.7.1 3.5-.9 4.5-2.2 1-1.2 1.7-2.9 1.6-4.7zM21 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.6-4-3.1C1 16.5.6 11.3 2.6 8.5c1-1.4 2.6-2.3 4.1-2.3 1.6 0 2.6 1 3.9 1 1.3 0 2.1-1 3.9-1 1.4 0 2.8.7 3.9 2-3.4 1.9-2.9 6.8.6 8.1z"/></svg></div>
+            <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:2px; display:inline-flex;">
+              <div style="color:rgba(0,0,0,0.50); font-size:10px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:12px; word-wrap:break-word;">Download on the</div>
+              <div style="align-self:stretch; color:#000; font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; line-height:14.40px; word-wrap:break-word;">App Store</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding-top:6px; padding-bottom:6px; padding-left:6px; padding-right:26px; background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); overflow:hidden; border-radius:30px; outline:2px rgba(255,255,255,0.50) solid; outline-offset:-2px; justify-content:flex-start; align-items:center; gap:10px; display:flex;">
+          <div style="justify-content:flex-start; align-items:center; gap:11px; display:flex;">
+            <div style="width:40px; height:40px; padding:13px; background:#F7941D; border-radius:44px; justify-content:center; align-items:center; gap:10px; display:flex; box-sizing:border-box;"><svg width="15" height="16" viewBox="0 0 24 24" fill="#fff"><polygon points="4 3 20 12 4 21 4 3"/></svg></div>
+            <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:2px; display:inline-flex;">
+              <div style="align-self:stretch; color:rgba(0,0,0,0.50); font-size:10px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:12px; word-wrap:break-word;">Get it on</div>
+              <div style="color:#000; font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; line-height:14.40px; word-wrap:break-word;">Google Play</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:center; gap:9px; width:100%;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#000" stroke-width="2"/><path d="M14.5 9.5a3.5 3.5 0 1 0 0 5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+        <div><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">2026 </span><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-transform:uppercase; line-height:16.80px;">Hantrix</span><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">. All rights reserved.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
