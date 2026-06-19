@@ -326,7 +326,7 @@
     <!-- Curriculum -->
     <div style="margin-top:60px;">
       <h2 style="font-size:44px; font-weight:500; line-height:1.2; letter-spacing:0; color:#000000; margin-bottom:8px;">
-        The Complete 8-Module Curriculum
+        The Complete 9-Module Curriculum
       </h2>
       <p class="curriculum-subtitle" style="font-size:16px; color:rgba(0,0,0,0.50); margin-bottom:28px;">
         Step-by-step, from mindset to your first international sale.
@@ -731,14 +731,15 @@
 <script>
 // ── Accordion ──────────────────────────────────────────────
 const MODULES = [
-  ["Foundation",                        "Module 0", ["Mindset & expectations","How international dropshipping really works","Tools you actually need"]],
-  ["International Dropshipping Basics", "Module 1", ["The US / UK / AU opportunity","Unit economics & margins","The realistic 90-day path"]],
-  ["Shopify Store Setup",               "Module 2", ["Store structure that converts","Trust & checkout setup","Speed & mobile optimization"]],
-  ["Product Research",                  "Module 3", ["Validating winning products","Spotting demand before you spend","Sourcing reliable suppliers"]],
-  ["Theme Pages",                       "Module 4", ["High-converting product pages","Homepage & collections","Offers & upsells"]],
-  ["Facebook Ads",                      "Module 5", ["Ad accounts set up from India","Creatives & targeting","Reading & scaling your numbers"]],
-  ["TikTok Ads",                        "Module 6", ["Organic + paid strategy","Creative formats that sell","Scaling profitably"]],
-  ["Case Study & Wrap Up",              "Module 7", ["Full store walkthrough","Your first-sale roadmap","What to do next"]],
+  ["Foundation",                        "Module 0", ["Mindset","LLC Formation"]],
+  ["International Dropshipping Basics", "Module 1", ["What is International Dropshipping","Introduction to Suppliers","Wise Account Setup","Stripe Account Setup","Mercury Bank Account Setup","Setting up Shopify Payments"]],
+  ["Shopify Store Setup",               "Module 2", ["Shopify Overview","Shopify Store Setup","Product Page","Product Page Setup","Legal Pages Setup","App Integration","Domain Setup","Final Store Checklist"]],
+  ["Theme Pages",                       "Module 3", ["Introduction to Theme Pages","How to Find Winning Products on Theme Pages","How to Connect with Theme Pages"]],
+  ["Product Research",                  "Module 4", ["Introduction to Product Research","Finding products through kalodata","Finding products through Pipi ads"]],
+  ["Facebook Ads",                      "Module 5", ["Facebook Overview","Pixel Setup","Campaign Setup","How to Run Ads","Metrics & Performance Tracking","Scaling Ads"]],
+  ["TikTok Ads",                        "Module 6", ["TikTok Introduction","TikTok Pixel Setup","TikTok Campaign Setup"]],
+  ["Case Study & Wrap Up",              "Module 7", ["Complete Dropshipping Case Study","Strategy Recap & Wrap Up"]],
+  ["Customer Support",                  "Module 8", ["Customer Support Management","Chargeback Prevention"]],
 ];
 
 let openIdx = 0;
@@ -751,7 +752,7 @@ function renderModules() {
     const isOpen = openIdx === i;
 
     const bullets = m[2].map(b =>
-      `<div style="align-self:stretch;justify-content:center;display:flex;flex-direction:column;color:#000;font-size:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;text-transform:capitalize;line-height:14.40px;word-wrap:break-word;">${b}</div>`
+      `<div style="align-self:stretch;display:flex;align-items:center;gap:8px;color:#000;font-size:12px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;text-transform:capitalize;line-height:14.40px;word-wrap:break-word;"><span style="width:6px;height:6px;min-width:6px;border-radius:50%;background:#000;display:inline-block;"></span>${b}</div>`
     ).join('');
 
     return `
