@@ -215,6 +215,10 @@
         word-wrap: break-word !important;
       }
 
+      /* Hide desktop footer, show mobile footer */
+      footer { display: none !important; }
+      .mobile-footer { display: block !important; }
+
       /* Prevent horizontal overflow */
       html, body { overflow-x: hidden !important; max-width: 100vw !important; }
       .main-grid, .left-col { overflow-x: hidden !important; max-width: 100% !important; }
@@ -225,6 +229,7 @@
       .mobile-sticky-bar { display: none !important; }
       #mobile-overlay { display: none !important; }
       .hamburger-icon { display: none !important; }
+      .mobile-footer { display: none !important; }
     }
   </style>
 </head>
@@ -415,112 +420,226 @@
 <!-- ============================================================
      FOOTER
 ============================================================ -->
-<footer style="border-top:1px solid rgba(0,0,0,0.20); background:#F5F5F5; padding:80px 80px 43px;">
+<footer style="background:#F5F5F5; padding:40px 80px 60px;">
   <div style="max-width:1280px; margin:0 auto;">
+    <div style="padding:12px 32px 12px 12px; background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); border-radius:30px; outline:2px rgba(255,255,255,0.50) solid; outline-offset:-2px; display:inline-flex; flex-direction:column; gap:10px; width:100%;">
+      <div style="align-self:stretch; display:inline-flex; align-items:flex-start; gap:32px;">
 
-    <div style="display:flex; align-items:center; gap:32px; align-self:stretch;">
-
-      <!-- Orange brand card -->
-      <div style="background:#F7941D; border-radius:20px; padding:30px 28px; display:flex; flex-direction:column; min-height:280px;">
-        <div style="display:flex; align-items:center; gap:11px;">
-          <svg width="34" height="30" viewBox="0 0 34 30" fill="none">
-            <rect x="0"  y="0"  width="9"  height="9"  fill="#fff"/>
-            <rect x="0"  y="9"  width="9"  height="21" fill="#fff"/>
-            <rect x="9"  y="11" width="11" height="8"  fill="#fff"/>
-            <rect x="20" y="0"  width="9"  height="21" fill="#fff"/>
-            <rect x="25" y="21" width="9"  height="9"  fill="#fff" opacity="0.65"/>
-          </svg>
-          <div style="line-height:1;">
-            <div style="font-weight:700; font-size:18px; color:#fff; letter-spacing:0.5px;">HANTRIX</div>
-            <div style="font-weight:400; font-size:10px; color:#fff; letter-spacing:3.5px;">ACADEMY</div>
-          </div>
-        </div>
-        <p style="font-size:14px; color:rgba(255,255,255,0.90); line-height:1.6; margin:auto 0 22px;">
-          Empowering learners with practical education for a stronger future.
-        </p>
-        <div style="display:flex; gap:12px;">
-          <span style="width:40px; height:40px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; color:#F7941D; font-weight:700; font-size:13px; flex:none;">ig</span>
-          <span style="width:40px; height:40px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; color:#F7941D; font-weight:700; font-size:13px; flex:none;">db</span>
-          <span style="width:40px; height:40px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; color:#F7941D; font-weight:700; font-size:13px; flex:none;">f</span>
-          <span style="width:40px; height:40px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; color:#F7941D; font-weight:700; font-size:13px; flex:none;">x</span>
-        </div>
-      </div>
-
-      <!-- Right footer columns -->
-      <div>
-        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:32px;">
-
-          <!-- Newsletter -->
-          <div style="max-width:240px;">
-            <p style="font-size:15px; font-weight:500; color:#000000; margin-bottom:14px;">
-              Empowering learners for career success.
-            </p>
-            <div style="display:flex; align-items:center; background:#FFFFFF; border:1px solid rgba(0,0,0,0.10); border-radius:62px; padding:5px 5px 5px 16px;">
-              <input placeholder="Enter your email" style="border:none; outline:none; background:transparent; font-family:'Plus Jakarta Sans',sans-serif; font-size:13.5px; color:#000; flex:1; min-width:0;">
-              <button class="btn-primary" style="font-size:13px; padding:9px 18px; height:36px; box-shadow:0 6px 10px -3px rgba(0,0,0,0.20);">Subscribe</button>
-            </div>
-          </div>
-
-          <!-- Quick Links -->
-          <div>
-            <div style="font-size:16px; font-weight:600; color:#000000; margin-bottom:16px;">Quick Links</div>
-            <div style="display:flex; flex-direction:column; gap:11px; font-size:14px; color:rgba(0,0,0,0.60);">
-              <span>Home</span><span>About</span><span>Courses</span><span>Pricing</span>
-            </div>
-          </div>
-
-          <!-- More Resources -->
-          <div>
-            <div style="font-size:16px; font-weight:600; color:#000000; margin-bottom:16px;">More Resources</div>
-            <div style="display:flex; flex-direction:column; gap:11px; font-size:14px; color:rgba(0,0,0,0.60);">
-              <span>How it works</span><span>Features</span><span>Testimonials</span><span>FAQ</span>
-            </div>
-          </div>
-
-          <!-- Legal -->
-          <div>
-            <div style="font-size:16px; font-weight:600; color:#000000; margin-bottom:16px;">Legal</div>
-            <div style="display:flex; flex-direction:column; gap:11px; font-size:14px; color:rgba(0,0,0,0.60);">
-              <span>Terms of Service</span><span>Privacy Policy</span><span>Refund Policy</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Bottom bar -->
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:44px; flex-wrap:wrap; gap:16px;">
-          <span style="font-size:13.5px; color:rgba(0,0,0,0.50);">© 2026 HANTRIX. All rights reserved.</span>
-          <div style="display:flex; gap:12px;">
-            <div style="display:flex; align-items:center; gap:10px; background:#FFFFFF; border:1px solid rgba(0,0,0,0.10); border-radius:62px; padding:8px 16px 8px 10px;">
-              <span style="width:30px; height:30px; border-radius:8px; background:#F7941D; display:flex; align-items:center; justify-content:center; flex:none;">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M16 1c-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.8 2.9-1.5 4.5 1.7.1 3.5-.9 4.5-2.2 1-1.2 1.7-2.9 1.6-4.7zM21 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.6-4-3.1C1 16.5.6 11.3 2.6 8.5c1-1.4 2.6-2.3 4.1-2.3 1.6 0 2.6 1 3.9 1 1.3 0 2.1-1 3.9-1 1.4 0 2.8.7 3.9 2-3.4 1.9-2.9 6.8.6 8.1z"/></svg>
-              </span>
-              <div style="line-height:1.1;">
-                <div style="font-size:10px; color:rgba(0,0,0,0.45);">Download on the</div>
-                <div style="font-size:14px; font-weight:600; color:#000000;">App Store</div>
-              </div>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px; background:#FFFFFF; border:1px solid rgba(0,0,0,0.10); border-radius:62px; padding:8px 16px 8px 10px;">
-              <span style="width:30px; height:30px; border-radius:8px; background:#F7941D; display:flex; align-items:center; justify-content:center; flex:none;">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><polygon points="4 3 20 12 4 21 4 3"/></svg>
-              </span>
-              <div style="line-height:1.1;">
-                <div style="font-size:10px; color:rgba(0,0,0,0.45);">Get it on</div>
-                <div style="font-size:14px; font-weight:600; color:#000000;">Google Play</div>
+        <!-- Left: Orange brand card -->
+        <div style="padding:32px; background:#F7941D; box-shadow:0px 11px 13px -5px rgba(0,0,0,0.20), 0px 2px 0px rgba(0,0,0,0.25) inset; border-radius:20px; display:flex; flex:none;">
+          <div style="width:240px; min-height:380px; display:inline-flex; flex-direction:column; align-items:center; justify-content:space-between;">
+            <!-- Logo -->
+            <img src="footer-logo.png" style="height:61px; width:auto; object-fit:contain;">
+            <!-- Tagline + socials -->
+            <div style="align-self:stretch; display:flex; flex-direction:column; align-items:center; gap:32px;">
+              <div style="align-self:stretch; text-align:center; color:rgba(255,255,255,0.70); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px; word-wrap:break-word;">Empowering learners with practical education for a stronger future.</div>
+              <div style="display:inline-flex; align-items:center; gap:16px;">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/hantrix.academy?igsh=bWI3dGhtZ2I4bGY2&utm_source=qr" target="_blank" rel="noopener" style="padding:12px; background:white; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="6" stroke="#000" stroke-width="2" fill="none"/>
+                    <circle cx="12" cy="12" r="4" stroke="#000" stroke-width="2" fill="none"/>
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="#000"/>
+                  </svg>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/hantrix-academy-3033b0403/" target="_blank" rel="noopener" style="padding:12px; background:white; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="20" height="20" rx="4" stroke="#000" stroke-width="2" fill="none"/>
+                    <path d="M7 10v7M7 7v.5" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M11 17v-4c0-1.1.9-2 2-2h1a2 2 0 0 1 2 2v4" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 10v7" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@hantrixacademy" target="_blank" rel="noopener" style="padding:12px; background:white; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" stroke="#000" stroke-width="2" fill="none"/>
+                    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#000"/>
+                  </svg>
+                </a>
+                <!-- X (Twitter) -->
+                <a href="https://x.com/hantrixacademy?s=11" target="_blank" rel="noopener" style="padding:12px; background:white; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.75C7.44329 3.75 3.75 7.44329 3.75 12C3.75 16.5567 7.44329 20.25 12 20.25C16.5567 20.25 20.25 16.5567 20.25 12C20.25 7.44329 16.5567 3.75 12 3.75ZM2.25 12C2.25 6.61487 6.61487 2.25 12 2.25C17.3851 2.25 21.75 6.61487 21.75 12C21.75 17.3851 17.3851 21.75 12 21.75C6.61487 21.75 2.25 17.3851 2.25 12Z" fill="black"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.34352 8.47386C6.90712 7.83045 7.36801 6.96094 8.14545 6.96094H10.1963C10.6265 6.96094 11.0287 7.17412 11.2701 7.53012L16.7059 15.5444C17.1423 16.1878 16.6814 17.0573 15.9039 17.0573H13.8531C13.4229 17.0573 13.0207 16.8441 12.7793 16.4881L7.34352 8.47386ZM9.14723 8.46094L13.9604 15.5573H14.9022L10.089 8.46094H9.14723Z" fill="black"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.6242 12.2418C11.9351 12.5155 11.9652 12.9894 11.6915 13.3003L8.4399 16.9938C8.16619 17.3047 7.69228 17.3349 7.38138 17.0612C7.07048 16.7875 7.04032 16.3136 7.31403 16.0027L10.5657 12.3091C10.8394 11.9982 11.3133 11.9681 11.6242 12.2418Z" fill="black"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2968 6.93707C16.6077 7.21078 16.6378 7.68469 16.3641 7.99559L13.3061 11.4692C13.0324 11.7801 12.5585 11.8103 12.2476 11.5366C11.9367 11.2629 11.9065 10.7889 12.1802 10.478L15.2383 7.00443C15.512 6.69352 15.9859 6.66337 16.2968 6.93707Z" fill="black"/>
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Right: Links + newsletter -->
+        <div style="flex:1; flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:163px; display:inline-flex;">
+
+          <!-- Top row -->
+          <div style="align-self:stretch; justify-content:flex-start; align-items:center; gap:53px; display:inline-flex; padding-top:40px;">
+
+            <!-- Newsletter -->
+            <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:30px; display:inline-flex;">
+              <div style="color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; text-transform:capitalize; line-height:14.40px; word-wrap:break-word;">Empowering learners for career success.</div>
+              <div style="padding:7px 7px 7px 20px; border-radius:125px; outline:1px rgba(0,0,0,0.10) solid; outline-offset:-1px; backdrop-filter:blur(12.35px); justify-content:flex-start; align-items:center; gap:55px; display:inline-flex;">
+                <div style="width:90px; height:15px; text-align:center; justify-content:center; display:flex; flex-direction:column; color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:14.40px; word-wrap:break-word;">
+                  <input placeholder="Enter your email" style="border:none; outline:none; background:transparent; font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:rgba(0,0,0,0.50); width:100%;">
+                </div>
+                <button style="padding:9px 4px; background:#F7941D; box-shadow:0px 11px 13px -5px rgba(0,0,0,0.20), 0px 2px 0px rgba(0,0,0,0.25) inset; border-radius:62px; border:none; overflow:hidden; justify-content:center; align-items:center; gap:10px; display:flex; cursor:pointer;">
+                  <div style="width:97px; text-align:center; color:white; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-transform:capitalize; line-height:16.80px; word-wrap:break-word;">Subscribe</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Link columns -->
+            <div style="justify-content:flex-start; align-items:flex-start; gap:54px; display:flex;">
+
+              <!-- Legal -->
+              <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:20px; display:inline-flex;">
+                <div style="color:#000; font-size:18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; line-height:21.60px; word-wrap:break-word;">Legal</div>
+                <div style="align-self:stretch; flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:12px; display:flex;">
+                  <div style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px; word-wrap:break-word;">Terms of Service</div>
+                  <div style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px; word-wrap:break-word;">Privacy Policy</div>
+                  <div style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px; word-wrap:break-word;">Refund Policy</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom bar -->
+          <div style="align-self:stretch; justify-content:flex-start; align-items:center; gap:170px; display:inline-flex;">
+            <!-- Copyright -->
+            <div style="justify-content:flex-start; align-items:center; gap:9px; display:flex;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#000" stroke-width="2"/><path d="M14.5 9.5a3.5 3.5 0 1 0 0 5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+              <div><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">2026 </span><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-transform:uppercase; line-height:16.80px;">Hantrix</span><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">. All rights reserved.</span></div>
+            </div>
+            <!-- App store buttons -->
+            <div style="justify-content:flex-start; align-items:center; gap:20px; display:flex;">
+              <div style="padding:6px 29px 6px 6px; background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); border-radius:30px; outline:2px white solid; outline-offset:-2px; display:flex; align-items:center; gap:10px;">
+                <div style="justify-content:flex-start; align-items:center; gap:11px; display:flex;">
+                  <div style="width:40px; height:40px; padding:13px; background:#F7941D; border-radius:44px; display:flex; justify-content:center; align-items:center; flex:none;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M16 1c-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.8 2.9-1.5 4.5 1.7.1 3.5-.9 4.5-2.2 1-1.2 1.7-2.9 1.6-4.7zM21 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.6-4-3.1C1 16.5.6 11.3 2.6 8.5c1-1.4 2.6-2.3 4.1-2.3 1.6 0 2.6 1 3.9 1 1.3 0 2.1-1 3.9-1 1.4 0 2.8.7 3.9 2-3.4 1.9-2.9 6.8.6 8.1z"/></svg>
+                  </div>
+                  <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:2px; display:inline-flex;">
+                    <div style="color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:14.40px; word-wrap:break-word;">Download on the</div>
+                    <div style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; line-height:16.80px; word-wrap:break-word;">App Store</div>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:6px 29px 6px 6px; background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); border-radius:30px; outline:2px white solid; outline-offset:-2px; display:flex; align-items:center; gap:10px;">
+                <div style="justify-content:flex-start; align-items:center; gap:11px; display:flex;">
+                  <div style="width:40px; height:40px; padding:13px; background:#F7941D; border-radius:44px; display:flex; justify-content:center; align-items:center; flex:none;">
+                    <svg width="15" height="16" viewBox="0 0 24 24" fill="#fff"><polygon points="4 3 20 12 4 21 4 3"/></svg>
+                  </div>
+                  <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:2px; display:inline-flex;">
+                    <div style="color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:14.40px; word-wrap:break-word;">Get it on</div>
+                    <div style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; line-height:16.80px; word-wrap:break-word;">Google Play</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-
-    <!-- Watermark -->
-    <div style="text-align:center; overflow:hidden; margin-top:8px; pointer-events:none; user-select:none;">
-      <div style="font-weight:700; font-size:220px; line-height:0.85; letter-spacing:8px; color:rgba(0,0,0,0.06);">HANTRIX</div>
-    </div>
-
   </div>
 </footer>
+
+<!-- ============================================================
+     MOBILE FOOTER
+============================================================ -->
+<div class="mobile-footer" style="display:none; background:#F5F5F5; padding:12px 12px 100px;">
+  <div style="background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); border-radius:30px; outline:2px rgba(255,255,255,0.50) solid; outline-offset:-2px; overflow:hidden; display:flex; flex-direction:column;">
+
+    <!-- Orange brand card -->
+    <div style="margin:12px 12px 0; padding:32px; background:#F7941D; box-shadow:0px 11px 13px -5px rgba(0,0,0,0.20), 0px 2px 0px rgba(0,0,0,0.25) inset; border-radius:20px; display:flex; justify-content:center;">
+      <div style="width:100%; flex-direction:column; justify-content:flex-start; align-items:center; gap:60px; display:inline-flex;">
+        <img src="footer-logo.png" style="width:116px; height:41px; object-fit:contain;">
+        <div style="flex-direction:column; justify-content:flex-start; align-items:center; gap:32px; display:flex;">
+          <div style="width:269px; text-align:center; color:rgba(255,255,255,0.70); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:14.40px; word-wrap:break-word;">Empowering learners with practical education for a stronger future.</div>
+          <div style="justify-content:flex-start; align-items:center; gap:12px; display:inline-flex;">
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/hantrix.academy?igsh=bWI3dGhtZ2I4bGY2&utm_source=qr" target="_blank" rel="noopener" style="width:40px; height:40px; padding:12px; background:white; overflow:hidden; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none; box-sizing:border-box;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#000" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4" stroke="#000" stroke-width="2" fill="none"/><circle cx="17.5" cy="6.5" r="1.5" fill="#000"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/hantrix-academy-3033b0403/" target="_blank" rel="noopener" style="width:40px; height:40px; padding:12px; background:white; overflow:hidden; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none; box-sizing:border-box;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#000" stroke-width="2" fill="none"/><path d="M7 10v7M7 7v.5" stroke="#000" stroke-width="2" stroke-linecap="round"/><path d="M11 17v-4c0-1.1.9-2 2-2h1a2 2 0 0 1 2 2v4" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 10v7" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@hantrixacademy" target="_blank" rel="noopener" style="width:40px; height:40px; padding:12px; background:white; overflow:hidden; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none; box-sizing:border-box;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" stroke="#000" stroke-width="2" fill="none"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#000"/></svg>
+            </a>
+            <!-- X (Twitter) -->
+            <a href="https://x.com/hantrixacademy?s=11" target="_blank" rel="noopener" style="width:40px; height:40px; padding:12px; background:white; overflow:hidden; border-radius:50px; display:flex; justify-content:center; align-items:center; text-decoration:none; box-sizing:border-box;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.75C7.44329 3.75 3.75 7.44329 3.75 12C3.75 16.5567 7.44329 20.25 12 20.25C16.5567 20.25 20.25 16.5567 20.25 12C20.25 7.44329 16.5567 3.75 12 3.75ZM2.25 12C2.25 6.61487 6.61487 2.25 12 2.25C17.3851 2.25 21.75 6.61487 21.75 12C21.75 17.3851 17.3851 21.75 12 21.75C6.61487 21.75 2.25 17.3851 2.25 12Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7.34352 8.47386C6.90712 7.83045 7.36801 6.96094 8.14545 6.96094H10.1963C10.6265 6.96094 11.0287 7.17412 11.2701 7.53012L16.7059 15.5444C17.1423 16.1878 16.6814 17.0573 15.9039 17.0573H13.8531C13.4229 17.0573 13.0207 16.8441 12.7793 16.4881L7.34352 8.47386ZM9.14723 8.46094L13.9604 15.5573H14.9022L10.089 8.46094H9.14723Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11.6242 12.2418C11.9351 12.5155 11.9652 12.9894 11.6915 13.3003L8.4399 16.9938C8.16619 17.3047 7.69228 17.3349 7.38138 17.0612C7.07048 16.7875 7.04032 16.3136 7.31403 16.0027L10.5657 12.3091C10.8394 11.9982 11.3133 11.9681 11.6242 12.2418Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16.2968 6.93707C16.6077 7.21078 16.6378 7.68469 16.3641 7.99559L13.3061 11.4692C13.0324 11.7801 12.5585 11.8103 12.2476 11.5366C11.9367 11.2629 11.9065 10.7889 12.1802 10.478L15.2383 7.00443C15.512 6.69352 15.9859 6.66337 16.2968 6.93707Z" fill="black"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom content -->
+    <div style="margin:0 12px 12px; padding:30px 0; display:flex; flex-direction:column; justify-content:space-between; gap:30px;">
+
+      <!-- Newsletter -->
+      <div style="display:flex; flex-direction:column; gap:30px;">
+        <div style="width:175px; color:rgba(0,0,0,0.50); font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:300; text-transform:capitalize; line-height:14.40px; word-wrap:break-word;">Empowering learners for career success.</div>
+        <div style="padding:7px 7px 7px 20px; border-radius:125px; outline:1px rgba(0,0,0,0.10) solid; outline-offset:-1px; display:inline-flex; align-items:center; gap:20px;">
+          <input placeholder="Enter your email" style="border:none; outline:none; background:transparent; font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; color:rgba(0,0,0,0.50); flex:1; min-width:0;">
+          <button style="padding:9px 4px; background:#F7941D; box-shadow:0px 11px 13px -5px rgba(0,0,0,0.20), 0px 1px 0px rgba(0,0,0,0.25) inset; border-radius:62px; border:none; cursor:pointer;">
+            <div style="width:97px; text-align:center; color:white; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-transform:capitalize; line-height:16.80px;">Subscribe</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="color:#000; font-size:18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:500; line-height:21.60px;">Legal</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">Terms of Service</div>
+          <div style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">Privacy Policy</div>
+          <div style="color:rgba(0,0,0,0.50); font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">Refund Policy</div>
+        </div>
+      </div>
+
+      <!-- App Store buttons -->
+      <div style="justify-content:flex-start; align-items:center; gap:20px; display:inline-flex;">
+        <div style="padding-top:6px; padding-bottom:6px; padding-left:6px; padding-right:26px; background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); overflow:hidden; border-radius:30px; outline:2px rgba(255,255,255,0.50) solid; outline-offset:-2px; justify-content:flex-start; align-items:center; gap:10px; display:flex;">
+          <div style="justify-content:flex-start; align-items:center; gap:11px; display:flex;">
+            <div style="width:40px; height:40px; padding:13px; background:#F7941D; border-radius:44px; justify-content:center; align-items:center; gap:10px; display:flex; box-sizing:border-box;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M16 1c-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.8 2.9-1.5 4.5 1.7.1 3.5-.9 4.5-2.2 1-1.2 1.7-2.9 1.6-4.7zM21 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1-2 0-2.5 1-3.9 1-1.7 0-3-1.6-4-3.1C1 16.5.6 11.3 2.6 8.5c1-1.4 2.6-2.3 4.1-2.3 1.6 0 2.6 1 3.9 1 1.3 0 2.1-1 3.9-1 1.4 0 2.8.7 3.9 2-3.4 1.9-2.9 6.8.6 8.1z"/></svg>
+            </div>
+            <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:2px; display:inline-flex;">
+              <div style="color:rgba(0,0,0,0.50); font-size:10px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:12px; word-wrap:break-word;">Download on the</div>
+              <div style="align-self:stretch; color:#000; font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; line-height:14.40px; word-wrap:break-word;">App Store</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding-top:6px; padding-bottom:6px; padding-left:6px; padding-right:26px; background:rgba(255,255,255,0); box-shadow:0px 11px 13px -5px rgba(0,0,0,0.10); overflow:hidden; border-radius:30px; outline:2px rgba(255,255,255,0.50) solid; outline-offset:-2px; justify-content:flex-start; align-items:center; gap:10px; display:flex;">
+          <div style="justify-content:flex-start; align-items:center; gap:11px; display:flex;">
+            <div style="width:40px; height:40px; padding:13px; background:#F7941D; border-radius:44px; justify-content:center; align-items:center; gap:10px; display:flex; box-sizing:border-box;">
+              <svg width="15" height="16" viewBox="0 0 24 24" fill="#fff"><polygon points="4 3 20 12 4 21 4 3"/></svg>
+            </div>
+            <div style="flex-direction:column; justify-content:flex-start; align-items:flex-start; gap:2px; display:inline-flex;">
+              <div style="align-self:stretch; color:rgba(0,0,0,0.50); font-size:10px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:12px; word-wrap:break-word;">Get it on</div>
+              <div style="color:#000; font-size:12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; line-height:14.40px; word-wrap:break-word;">Google Play</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div style="display:flex; align-items:center; justify-content:center; gap:9px; width:100%;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#000" stroke-width="2"/><path d="M14.5 9.5a3.5 3.5 0 1 0 0 5" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+        <div><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">2026 </span><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; text-transform:uppercase; line-height:16.80px;">Hantrix</span><span style="color:#000; font-size:14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:400; line-height:16.80px;">. All rights reserved.</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 <!-- ============================================================
