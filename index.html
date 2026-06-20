@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -788,6 +789,32 @@ function toggleModule(i) {
 
 renderModules();
 
+// ── Cashfree payment ──────────────────────────────────────
+const WORKER_URL = 'https://cashfree-order.hantrixacademy.workers.dev';
+
+async function initiatePayment(name, email, phone, errId, btnEl) {
+  btnEl.disabled = true;
+  btnEl.textContent = 'Please wait...';
+  try {
+    const res = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, phone })
+    });
+    const data = await res.json();
+    if (!res.ok || !data.payment_session_id) {
+      throw new Error(data.error || 'Payment init failed');
+    }
+    const cashfree = await Cashfree({ mode: 'production' });
+    cashfree.checkout({ paymentSessionId: data.payment_session_id, redirectTarget: '_self' });
+  } catch (err) {
+    document.getElementById(errId).textContent = 'Payment failed. Please try again.';
+    document.getElementById(errId).style.display = 'block';
+    btnEl.disabled = false;
+    btnEl.textContent = 'Enroll Now — Just ₹16,999';
+  }
+}
+
 // ── Form ──────────────────────────────────────────────────
 function submitForm(e) {
   e.preventDefault();
@@ -799,15 +826,7 @@ function submitForm(e) {
     return;
   }
   document.getElementById('form-err').style.display = 'none';
-  document.getElementById('state-form').style.display     = 'none';
-  document.getElementById('state-redirect').style.display = 'block';
-}
-
-function resetForm() {
-  document.getElementById('state-redirect').style.display = 'none';
-  document.getElementById('state-form').style.display     = 'block';
-  ['f-name','f-email','f-phone'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('form-err').style.display = 'none';
+  initiatePayment(name, email, phone, 'form-err', e.submitter || e.target.querySelector('button[type=submit]'));
 }
 
 // ── Mobile form overlay ───────────────────────────────────
@@ -830,16 +849,8 @@ function mSubmitForm(e) {
     document.getElementById('m-form-err').style.display = 'block';
     return;
   }
-  document.getElementById('m-form-err').style.display    = 'none';
-  document.getElementById('m-state-form').style.display  = 'none';
-  document.getElementById('m-state-redirect').style.display = 'block';
-}
-
-function mResetForm() {
-  document.getElementById('m-state-redirect').style.display = 'none';
-  document.getElementById('m-state-form').style.display     = 'block';
-  ['m-name','m-email','m-phone'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('m-form-err').style.display = 'none';
+  initiatePayment(name, email, phone, 'm-form-err', e.submitter || e.target.querySelector('button[type=submit]'));
 }
 </script>
 
