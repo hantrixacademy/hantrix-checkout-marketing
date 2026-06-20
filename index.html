@@ -398,7 +398,7 @@
         <input id="f-email" type="email" class="input-field" placeholder="you@email.com" style="margin-bottom:14px;" autocomplete="email">
 
         <label class="field-label">WhatsApp number</label>
-        <input id="f-phone" class="input-field" placeholder="+91 00000 00000" autocomplete="tel">
+        <input id="f-phone" class="input-field" placeholder="+91 00000 00000" autocomplete="tel" type="tel" inputmode="numeric" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'')">
 
         <div id="form-err" style="display:none; font-size:13px; color:#E0492B; margin-top:12px;">
           Please fill in all three fields.
@@ -719,7 +719,7 @@
         <label class="field-label">Email</label>
         <input id="m-email" type="email" class="input-field" placeholder="you@email.com" style="margin-bottom:14px;" autocomplete="email">
         <label class="field-label">WhatsApp number</label>
-        <input id="m-phone" class="input-field" placeholder="+91 00000 00000" autocomplete="tel">
+        <input id="m-phone" class="input-field" placeholder="+91 00000 00000" autocomplete="tel" type="tel" inputmode="numeric" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'')">
         <div id="m-form-err" style="display:none; font-size:13px; color:#E0492B; margin-top:12px;">Please fill in all three fields.</div>
         <button type="submit" class="btn-cta" style="margin-top:20px; font-size:30px; font-weight:700; height:120px; padding:32px; width:100%; letter-spacing:-0.5px; line-height:1.2;">Enroll Now — Just ₹16,999</button>
         <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-top:14px; font-size:12px; color:rgba(0,0,0,0.35);">
@@ -815,16 +815,25 @@ async function initiatePayment(name, email, phone, errId, btnEl) {
   }
 }
 
+// ── Validation helpers ────────────────────────────────────
+function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+function validPhone(v) { return /^\d{10}$/.test(v); }
+
+function showErr(id, msg) {
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
 // ── Form ──────────────────────────────────────────────────
 function submitForm(e) {
   e.preventDefault();
   const name  = document.getElementById('f-name').value.trim();
   const email = document.getElementById('f-email').value.trim();
   const phone = document.getElementById('f-phone').value.trim();
-  if (!name || !email || !phone) {
-    document.getElementById('form-err').style.display = 'block';
-    return;
-  }
+  if (!name || !email || !phone) { showErr('form-err', 'Please fill in all fields.'); return; }
+  if (!validEmail(email))        { showErr('form-err', 'Please enter a valid email address.'); return; }
+  if (!validPhone(phone))        { showErr('form-err', 'Please enter a valid 10-digit phone number.'); return; }
   document.getElementById('form-err').style.display = 'none';
   initiatePayment(name, email, phone, 'form-err', e.submitter || e.target.querySelector('button[type=submit]'));
 }
@@ -845,10 +854,9 @@ function mSubmitForm(e) {
   const name  = document.getElementById('m-name').value.trim();
   const email = document.getElementById('m-email').value.trim();
   const phone = document.getElementById('m-phone').value.trim();
-  if (!name || !email || !phone) {
-    document.getElementById('m-form-err').style.display = 'block';
-    return;
-  }
+  if (!name || !email || !phone) { showErr('m-form-err', 'Please fill in all fields.'); return; }
+  if (!validEmail(email))        { showErr('m-form-err', 'Please enter a valid email address.'); return; }
+  if (!validPhone(phone))        { showErr('m-form-err', 'Please enter a valid 10-digit phone number.'); return; }
   document.getElementById('m-form-err').style.display = 'none';
   initiatePayment(name, email, phone, 'm-form-err', e.submitter || e.target.querySelector('button[type=submit]'));
 }
