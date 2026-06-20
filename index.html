@@ -808,7 +808,7 @@ async function initiatePayment(name, email, phone, errId, btnEl) {
     const cashfree = await Cashfree({ mode: 'production' });
     cashfree.checkout({ paymentSessionId: data.payment_session_id, redirectTarget: '_self' });
   } catch (err) {
-    document.getElementById(errId).textContent = 'Payment failed. Please try again.';
+    document.getElementById(errId).textContent = err.message || 'Payment failed. Please try again.';
     document.getElementById(errId).style.display = 'block';
     btnEl.disabled = false;
     btnEl.textContent = 'Enroll Now — Just ₹16,999';
