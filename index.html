@@ -795,6 +795,7 @@ renderModules();
 const WORKER_URL = 'https://cashfree-order.hantrixacademy.workers.dev';
 
 async function initiatePayment(name, email, phone, errId, btnEl) {
+  fbq('track', 'Lead', { content_name: 'Hantrix Academy Enrollment' });
   btnEl.disabled = true;
   btnEl.textContent = 'Please wait...';
   try {
@@ -807,6 +808,7 @@ async function initiatePayment(name, email, phone, errId, btnEl) {
     if (!res.ok || !data.payment_session_id) {
       throw new Error(data.error || 'Payment init failed');
     }
+    fbq('track', 'InitiateCheckout', { value: 16999, currency: 'INR', content_name: 'Hantrix Academy Enrollment' });
     const cashfree = await Cashfree({ mode: 'production' });
     cashfree.checkout({ paymentSessionId: data.payment_session_id, redirectTarget: '_self' });
   } catch (err) {
